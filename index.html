@@ -5,16 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>최지아 - Portfolio</title>
     <style>
-        /* 글로벌 리셋 및 기본 설정 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #111; background-color: #fff; overflow-x: hidden; }
 
-        /* 배경 효과 (옵션 B: 모던 블러/글로우) */
         .hero-wrap { position: relative; width: 100%; min-height: 100vh; background-color: #ffffff; overflow: hidden; padding-bottom: 250px; }
         .hero-wrap::before { content: ''; position: absolute; top: -150px; left: 50%; transform: translateX(-50%); width: 800px; height: 500px; background: linear-gradient(90deg, rgba(0, 122, 255, 0.12) 0%, rgba(157, 78, 221, 0.12) 100%); filter: blur(80px); border-radius: 50%; z-index: 0; pointer-events: none; }
         .hero-wrap > * { position: relative; z-index: 1; }
 
-        /* 우측 상단 고정 텍스트 */
+        /* ===== 떠다니는 장식 도형 ===== */
+        .deco-shape {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* 좌측 상단 - 파란 원 */
+        .deco-1 {
+            top: 180px;
+            left: 8%;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.4), rgba(0, 122, 255, 0.1));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.15);
+            animation: float1 6s ease-in-out infinite;
+        }
+        /* 우측 상단 - 보라 사각형 (둥근 모서리) */
+        .deco-2 {
+            top: 220px;
+            right: 10%;
+            width: 110px;
+            height: 110px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(157, 78, 221, 0.1));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(157, 78, 221, 0.15);
+            transform: rotate(15deg);
+            animation: float2 7s ease-in-out infinite;
+        }
+        /* 좌측 하단 - 노란 작은 원 */
+        .deco-3 {
+            top: 380px;
+            left: 15%;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.5), rgba(250, 204, 21, 0.15));
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 15px 30px rgba(250, 204, 21, 0.2);
+            animation: float3 5s ease-in-out infinite;
+        }
+        /* 우측 하단 - 핑크 작은 사각형 */
+        .deco-4 {
+            top: 420px;
+            right: 18%;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(236, 72, 153, 0.1));
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.15);
+            transform: rotate(-20deg);
+            animation: float1 8s ease-in-out infinite;
+        }
+        /* 중앙 좌측 - 청록 링 */
+        .deco-5 {
+            top: 120px;
+            left: 25%;
+            width: 70px;
+            height: 70px;
+            background: transparent;
+            border: 6px solid rgba(34, 197, 94, 0.3);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.1);
+            animation: float2 9s ease-in-out infinite;
+        }
+        /* 중앙 우측 - 작은 점 */
+        .deco-6 {
+            top: 150px;
+            right: 25%;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.6), rgba(157, 78, 221, 0.6));
+            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+            animation: float3 6s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(8deg); }
+        }
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0px) rotate(15deg); }
+            50% { transform: translateY(-20px) rotate(-5deg); }
+        }
+        @keyframes float3 {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-15px) translateX(10px); }
+        }
+        /* deco-2는 기본 rotate(15deg) 가 있어서 별도 키프레임 */
+        .deco-2 {
+            animation: float2deco 7s ease-in-out infinite;
+        }
+        @keyframes float2deco {
+            0%, 100% { transform: translateY(0px) rotate(15deg); }
+            50% { transform: translateY(-25px) rotate(25deg); }
+        }
+        .deco-4 {
+            animation: float4deco 8s ease-in-out infinite;
+        }
+        @keyframes float4deco {
+            0%, 100% { transform: translateY(0px) rotate(-20deg); }
+            50% { transform: translateY(-20px) rotate(-10deg); }
+        }
+
+        /* 모바일에선 도형 숨김 (성능 + 깔끔함) */
+        @media (max-width: 768px) {
+            .deco-shape { display: none; }
+        }
+
         .top-right-brand {
             position: absolute;
             top: 40px;
@@ -26,7 +137,6 @@
             z-index: 100;
         }
 
-        /* 둥그런 미니 바 (최상단 글래스모피즘) */
         .top-mini-nav {
             position: fixed;
             top: 30px;
@@ -67,17 +177,14 @@
             color: #000; 
         }
 
-        /* 상단 타이틀 영역 */
-        .hero-text { text-align: center; padding: 140px 20px 80px; max-width: 1300px; margin: 0 auto; }
+        .hero-text { text-align: center; padding: 140px 20px 80px; max-width: 1300px; margin: 0 auto; position: relative; z-index: 2;}
         .hero-text h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.1; }
         .hero-text p { font-size: 1.1rem; color: #666; line-height: 1.6; max-width: 700px; margin: 0 auto; word-break: keep-all;}
 
-        /* 탭 컨텐츠 공통 스타일 */
-        .tab-content { display: none; max-width: 1300px; margin: 0 auto; padding: 0 20px; animation: fadeIn 0.4s ease forwards; }
+        .tab-content { display: none; max-width: 1300px; margin: 0 auto; padding: 0 20px; animation: fadeIn 0.4s ease forwards; position: relative; z-index: 2;}
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* 1. Resume 탭 */
         .resume-container { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(0,0,0,0.05); border-radius: 30px; padding: 50px; box-shadow: 0 20px 40px rgba(0,0,0,0.02); display: grid; grid-template-columns: 2.2fr 1fr; gap: 50px; margin-bottom: 60px; }
         .resume-main h2 { font-size: 1.8rem; margin-bottom: 20px; border-bottom: 2px solid #111; padding-bottom: 10px; font-weight: 800; }
         .resume-summary { font-size: 1.05rem; color: #333; line-height: 1.7; margin-bottom: 40px; word-break: keep-all; }
@@ -103,7 +210,6 @@
         .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
         .skill-tags span { background: #111; color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;}
 
-        /* 2. Work Experience 탭 */
         .visual-container { position: relative; width: 100%; height: 720px; display: flex; justify-content: center; align-items: center; }
         .phone-mockup { width: 340px; height: 680px; background: linear-gradient(to bottom, #f8fafc, #e2e8f0); border: 14px solid #111; border-radius: 50px; position: relative; z-index: 10; box-shadow: 0 30px 60px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #111; text-align: center; padding: 20px; }
         .phone-mockup::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 30px; background: #111; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; }
@@ -122,7 +228,6 @@
         .card-4 { top: 22%; right: 0%; z-index: 15; } .card-4 .card-icon { background: #f3e8ff; color: #9333ea; }
         .card-5 { bottom: 20%; right: 3%; } .card-5 .card-icon { background: #fef08a; color: #ca8a04; }
 
-        /* 4. AI Project 탭 */
         .category-section { margin-bottom: 50px; }
         .category-title { font-size: 1.4rem; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid #111; font-weight: 700; letter-spacing: -0.02em;}
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
@@ -138,7 +243,6 @@
         .media-meta { font-size: 0.85rem; color: #777; display: flex; justify-content: space-between; align-items: center; }
         .badge { background: #f1f5f9; padding: 4px 8px; border-radius: 6px; font-weight: 600; font-size: 0.75rem; color: #475569; border: 1px solid #e2e8f0; }
 
-        /* 팝업 모달 */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
         .modal.active { display: flex; }
         .modal-content-wrapper { position: relative; max-width: 85%; max-height: 85vh; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; }
@@ -146,10 +250,8 @@
         .close-btn { position: absolute; top: -50px; right: 0; color: #fff; font-size: 35px; font-weight: 300; cursor: pointer; line-height: 1; transition: color 0.2s; }
         .close-btn:hover { color: #facc15; }
 
-        /* 빈 영역 데코레이션 (Contact, Project 등) */
         .placeholder-box { text-align: center; padding: 100px 20px; background: rgba(255,255,255,0.6); border-radius: 30px; border: 1px dashed #cbd5e1; color: #64748b; font-size: 1.1rem; }
 
-        /* Contact 탭 프로필 이미지 둥근 프레임 */
         .contact-profile-img {
             width: 140px;
             height: 140px;
@@ -163,7 +265,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
-        /* 반응형 대응 */
         @media (max-width: 1800px) {
             .top-right-brand { display: none; } 
             .top-mini-nav { width: 95%; flex-wrap: wrap; justify-content: center; border-radius: 20px; top: 15px; }
@@ -177,6 +278,14 @@
 <body>
 
     <header class="hero-wrap">
+        
+        <!-- 떠다니는 장식 도형들 -->
+        <div class="deco-shape deco-1"></div>
+        <div class="deco-shape deco-2"></div>
+        <div class="deco-shape deco-3"></div>
+        <div class="deco-shape deco-4"></div>
+        <div class="deco-shape deco-5"></div>
+        <div class="deco-shape deco-6"></div>
         
         <div class="top-right-brand">최지아 포트폴리오</div>
         <nav class="top-mini-nav">
@@ -306,7 +415,6 @@
     </div>
 
     <script>
-        // 1. 탭 전환 스크립트
         const navButtons = document.querySelectorAll('.nav-btn');
         const sections = document.querySelectorAll('.tab-content');
 
@@ -322,7 +430,6 @@
             });
         });
 
-        // 2. 미디어 데이터 설정 영역
         const mediaData = [
             { 
                 id: 1, 
@@ -356,7 +463,6 @@
             }
         ];
 
-        // 3. 갤러리 렌더링 스크립트
         const categories = ["퍼플티 광고", "캐릭터제작", "카페이미지생성"];
         const galleryContainer = document.getElementById("gallery-container");
 
@@ -403,7 +509,6 @@
         }
         renderGallery();
 
-        // 4. 모달 제어 스크립트
         const modal = document.getElementById("mediaModal");
         const modalContent = document.getElementById("modalContent");
 
@@ -442,7 +547,6 @@
             modal.classList.remove("active");
         }
 
-        // 모달 바깥 클릭 시 닫기
         modal.addEventListener("click", function(e) {
             if (e.target === modal) closeModal();
         });
