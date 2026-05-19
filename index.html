@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>최지아 - Portfolio</title>
-    <style>openModal
+    <style>
         /* 글로벌 리셋 및 기본 설정 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #111; background-color: #fff; overflow-x: hidden; }
@@ -20,7 +20,7 @@
             top: 40px;
             right: 50px;
             font-size: 1.1rem;
-            font-weight: 400; /* Regular */
+            font-weight: 400;
             color: #111;
             letter-spacing: -0.02em;
             z-index: 100;
@@ -155,7 +155,6 @@
             height: 140px;
             border-radius: 50%;
             background-color: #e2e8f0;
-            /* 실제 사진 경로로 수정하세요 */
             background-image: url('./Media/내얼굴.jpg'); 
             background-size: cover;
             background-position: center;
@@ -205,7 +204,7 @@
                         <div class="resume-item-header">
                             <h3>바이트댄스 코리아 (TikTok)</h3><span class="date">2022.03 ~ 2025.07</span>
                         </div>
-                        <div class="company-dept">TikTok (서울) | Content QA Trust & Safety - Content Quality Specialist</div>
+                        <div class="company-dept">TikTok (서울) | Content QA Trust &amp; Safety - Content Quality Specialist</div>
                         <ul>
                             <li><strong>숏폼 정책 기획·운영:</strong> 숏폼 플랫폼 리스크 신호 수집 및 모호 케이스 Deep Dive, 판정 기준 제안.</li>
                             <li><strong>운영 품질/프로세스 고도화:</strong> 품질 검수 및 정책 개선을 통해 검수 정확도 평균 98% 유지.</li>
@@ -214,7 +213,7 @@
                             <li><strong>데이터 기반 정책 효과 측정:</strong> 커뮤니티 가이드라인 개정 전후 비교 분석 및 품질 이슈 CRM 대시보드 운영.</li>
                             <li><strong>이슈 대응 및 내부 커뮤니케이션:</strong> 리스크 발생 시 원페이저(One-pager) 작성 및 정책팀 공유.</li>
                             <li><strong>핵심 개선 사례 1 (피드백 DB 구축):</strong> 심사 피드백 데이터베이스 자체 구축. 팀 정확도 94% → 97% 향상.</li>
-                            <li><strong>핵심 개선 사례 2 (온보딩 프로세스 개편):</strong> 실무 데이터셋 기반 퀴즈 도입으로 <bar> 버디 세션 75% 시간 단축.</li>
+                            <li><strong>핵심 개선 사례 2 (온보딩 프로세스 개편):</strong> 실무 데이터셋 기반 퀴즈 도입으로 버디 세션 75% 시간 단축.</li>
                         </ul>
                     </div>
                     
@@ -280,7 +279,7 @@
         </div>
 
         <div class="tab-content" id="section-project">
-            <div class="placeholder-box">Project 데이터 분석 상세 내역을 기입하는 영역입니다. <bar> 이미지 추가 예정</div>
+            <div class="placeholder-box">Project 데이터 분석 상세 내역을 기입하는 영역입니다. 이미지 추가 예정</div>
         </div>
 
         <div class="tab-content" id="section-ai_project">
@@ -325,18 +324,16 @@
 
         // 2. 미디어 데이터 설정 영역
         const mediaData = [
-    { 
-        id: 1, 
-        category: "퍼플티 광고", 
-        title: "퍼플티 홍보 영상", 
-        type: "video", 
-        format: "YOUTUBE", // 포맷을 YOUTUBE로 변경
-        size: "-", 
-        src: "https://youtu.be/dXU0Z1Z-kig?si=79pLzpIX8XugLwOg", // 예: /embed/dQw4w9WgXcQ
-        thumb: "./Media/퍼플티 광고/ad_thumb.jpg" 
-    },
-    // ... 나머지 데이터는 그대로 유지
-];,
+            { 
+                id: 1, 
+                category: "퍼플티 광고", 
+                title: "퍼플티 홍보 영상", 
+                type: "video", 
+                format: "YOUTUBE",
+                size: "-", 
+                src: "https://youtu.be/dXU0Z1Z-kig?si=79pLzpIX8XugLwOg",
+                thumb: "./Media/퍼플티 광고/ad_thumb.jpg" 
+            },
             { id: 2, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 01", type: "image", format: "PNG", size: "1.2 MB", src: "./Media/캐릭터제작/char_image_01.png", thumb: "./Media/캐릭터제작/char_image_01.png" },
             { id: 3, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 02", type: "image", format: "PNG", size: "1.5 MB", src: "./Media/캐릭터제작/char_image_02.png", thumb: "./Media/캐릭터제작/char_image_02.png" },
             { id: 4, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 03", type: "image", format: "PNG", size: "2.1 MB", src: "./Media/캐릭터제작/char_image_03.png", thumb: "./Media/캐릭터제작/char_image_03.png" },
@@ -410,34 +407,45 @@
         const modal = document.getElementById("mediaModal");
         const modalContent = document.getElementById("modalContent");
 
-function openModal(item) {
-    modalContent.innerHTML = "";
-    
-    if (item.type === "image") {
-        const img = document.createElement("img");
-        img.src = item.src;
-        modalContent.appendChild(img);
-    } 
-    else if (item.type === "video") {
-        if (item.format === "YOUTUBE") {
-            modalContent.innerHTML = `
-                <div style="text-align: center; padding: 50px; color: white;">
-                    <p style="margin-bottom: 20px;">유튜브에서 영상 시청하기</p>
-                    <a href="${item.src}" target="_blank" style="padding: 15px 30px; background: #ff0000; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
-                        ▶ YouTube 열기
-                    </a>
-                </div>
-            `;
-        } else {
-            const video = document.createElement("video");
-            video.src = item.src;
-            video.controls = true;
-            video.autoplay = true;
-            video.style.width = "100%";
-            modalContent.appendChild(video);
+        function openModal(item) {
+            modalContent.innerHTML = "";
+            
+            if (item.type === "image") {
+                const img = document.createElement("img");
+                img.src = item.src;
+                modalContent.appendChild(img);
+            } 
+            else if (item.type === "video") {
+                if (item.format === "YOUTUBE") {
+                    modalContent.innerHTML = `
+                        <div style="text-align: center; padding: 50px; color: white;">
+                            <p style="margin-bottom: 20px;">유튜브에서 영상 시청하기</p>
+                            <a href="${item.src}" target="_blank" style="padding: 15px 30px; background: #ff0000; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+                                ▶ YouTube 열기
+                            </a>
+                        </div>
+                    `;
+                } else {
+                    const video = document.createElement("video");
+                    video.src = item.src;
+                    video.controls = true;
+                    video.autoplay = true;
+                    video.style.width = "100%";
+                    modalContent.appendChild(video);
+                }
+            }
+            modal.classList.add("active");
         }
-    }
-    modal.classList.add("active");
-}
+
+        function closeModal() {
+            modalContent.innerHTML = "";
+            modal.classList.remove("active");
+        }
+
+        // 모달 바깥 클릭 시 닫기
+        modal.addEventListener("click", function(e) {
+            if (e.target === modal) closeModal();
+        });
+    </script>
 </body>
 </html>
