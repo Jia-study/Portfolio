@@ -325,16 +325,18 @@
 
         // 2. 미디어 데이터 설정 영역
         const mediaData = [
-            { 
-                id: 1, 
-                category: "퍼플티 광고", 
-                title: "퍼플티 홍보 영상", 
-                type: "video", 
-                format: "MP4", 
-                size: "35.1 MB", 
-                src: "./Media/퍼플티 광고/ad_video.mp4",
-                thumb: "./Media/퍼플티 광고/ad_thumb.jpg" 
-            },
+    { 
+        id: 1, 
+        category: "퍼플티 광고", 
+        title: "퍼플티 홍보 영상", 
+        type: "video", 
+        format: "YOUTUBE", // 포맷을 YOUTUBE로 변경
+        size: "-", 
+        src: "https://youtu.be/dXU0Z1Z-kig", // 예: /embed/dQw4w9WgXcQ
+        thumb: "./Media/퍼플티 광고/ad_thumb.jpg" 
+    },
+    // ... 나머지 데이터는 그대로 유지
+];,
             { id: 2, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 01", type: "image", format: "PNG", size: "1.2 MB", src: "./Media/캐릭터제작/char_image_01.png", thumb: "./Media/캐릭터제작/char_image_01.png" },
             { id: 3, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 02", type: "image", format: "PNG", size: "1.5 MB", src: "./Media/캐릭터제작/char_image_02.png", thumb: "./Media/캐릭터제작/char_image_02.png" },
             { id: 4, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 03", type: "image", format: "PNG", size: "2.1 MB", src: "./Media/캐릭터제작/char_image_03.png", thumb: "./Media/캐릭터제작/char_image_03.png" },
