@@ -217,6 +217,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            transition: all 0.3s ease;
         }
 
         .hero-text h1 {
@@ -427,9 +428,10 @@
             box-shadow: 0 12px 24px rgba(0,0,0,0.08);
         }
 
+        /* 1번 요청 반영: 포스터와 영상 카드가 폰에서도 길고 시원하게 보이도록 세로 크기 확장 */
         .thumb-wrapper {
             width: 100%;
-            height: 190px;
+            height: 380px; /* 기존 190px에서 가로세로 비율 최적화 크기로 확장 */
             background-color: #f1f5f9;
             position: relative;
             overflow: hidden;
@@ -451,15 +453,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 48px;
-            height: 48px;
+            width: 54px;
+            height: 54px;
             background: rgba(0,0,0,0.7);
             color: #fff;
             border-radius: 50%;
             display: none;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 22px;
             padding-left: 4px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
@@ -657,6 +659,11 @@
                 text-align: center;
             }
 
+            /* 모바일에서도 포스터 비율 늘어난 효과가 깨지지 않도록 모바일 최적화 패딩 부여 */
+            .thumb-wrapper {
+                height: 340px; 
+            }
+
             .hero-text h1 {
                 font-size: 2.8rem;
                 margin-bottom: 14px;
@@ -780,10 +787,6 @@
                 gap: 20px;
             }
 
-            .thumb-wrapper {
-                height: 200px;
-            }
-
             .placeholder-box {
                 padding: 60px 20px;
                 border-radius: 20px;
@@ -810,7 +813,8 @@
             <div class="nav-btn" data-target="contact">✉️ Contact</div>
         </nav>
 
-        <div class="hero-text">
+        <!-- 3번 요청 반영: AI Project 탭을 누르면 이 소개 글 영역 전체가 스크립트에 의해 안 보이게 차단됩니다. -->
+        <div class="hero-text" id="main-hero-text">
             <h1>Portfolio</h1>
             <p>
                 데이터 전처리부터 리스크 방지 기획까지.<br>
@@ -952,13 +956,22 @@
     <script>
         const navButtons = document.querySelectorAll('.nav-btn');
         const sections = document.querySelectorAll('.tab-content');
+        const heroTextZone = document.getElementById('main-hero-text');
 
         navButtons.forEach(button => {
             button.addEventListener('click', function() {
                 navButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
 
-                const targetId = 'section-' + this.getAttribute('data-target');
+                const targetName = this.getAttribute('data-target');
+                const targetId = 'section-' + targetName;
+
+                // 3번 요청 구현: Resume 버튼일 때만 텍스트 노출하고, AI Project나 Contact 폼일 때는 안 뜨게 완전히 덮어버림
+                if (targetName === 'resume') {
+                    heroTextZone.style.display = 'block';
+                } else {
+                    heroTextZone.style.display = 'none';
+                }
 
                 sections.forEach(sec => {
                     if (sec.id === targetId) {
@@ -975,7 +988,7 @@
             });
         });
 
-        // 중요: 한글 폴더명을 영문 'purple_ad'로 변경했을 때 완벽 작동하는 경로 세팅
+        // 1번 & 2번 요청 구현: 추가 작업물 2개로 고정 및 영상 썸네일 경로 최적화 연동완료
         const mediaData = [
             { 
                 id: 1, 
@@ -985,7 +998,7 @@
                 format: "YOUTUBE",
                 size: "-", 
                 src: "https://youtu.be/dXU0Z1Z-kig?si=79pLzpIX8XugLwOg",
-                thumb: "./ad_thumb.png" 
+                thumb: "./Media/purple_ad/ad_thumb.png" // 영상 썸네일 경로를 새 영문 폴더 위치로 완벽 매칭
             },
             { 
                 id: 2, 
@@ -1016,16 +1029,6 @@
                 size: "-", 
                 src: "./extra_work_02.png",
                 thumb: "./extra_work_02.png" 
-            },
-            { 
-                id: 5, 
-                category: "추가 작업물", 
-                title: "추가 작업물 03", 
-                type: "image", 
-                format: "PNG", 
-                size: "-", 
-                src: "./extra_work_03.png",
-                thumb: "./extra_work_03.png" 
             },
             { 
                 id: 6, 
