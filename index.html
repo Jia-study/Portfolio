@@ -17,6 +17,7 @@
             color: #111;
             background-color: #fff;
             overflow-x: hidden;
+            line-height: 1.5;
         }
 
         .hero-wrap {
@@ -167,33 +168,38 @@
             top: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 50px;
             display: flex;
-            padding: 8px;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
             z-index: 1000;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            gap: 4px;
         }
 
         .nav-btn {
-            padding: 12px 22px;
+            padding: 10px 20px;
             color: #444;
             font-size: 0.95rem;
             font-weight: 600;
             border-radius: 40px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
             white-space: nowrap;
+            line-height: 1;
         }
 
         .nav-btn.active {
-            background: rgba(250, 204, 21, 0.7);
+            background: rgba(250, 204, 21, 0.9);
             color: #000;
             font-weight: 700;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -206,7 +212,7 @@
 
         .hero-text {
             text-align: center;
-            padding: 140px 20px 70px;
+            padding: 150px 20px 60px;
             max-width: 1300px;
             margin: 0 auto;
             position: relative;
@@ -217,14 +223,14 @@
             font-size: 4.5rem;
             font-weight: 900;
             letter-spacing: -0.02em;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             line-height: 1.1;
         }
 
         .hero-text p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.6;
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.75;
             max-width: 760px;
             margin: 0 auto;
             word-break: keep-all;
@@ -250,9 +256,9 @@
         }
 
         .resume-container {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.06);
             border-radius: 30px;
             padding: 50px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.02);
@@ -264,36 +270,37 @@
 
         .resume-main h2 {
             font-size: 1.8rem;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             border-bottom: 2px solid #111;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
             font-weight: 800;
         }
 
         .resume-summary {
             font-size: 1.05rem;
             color: #333;
-            line-height: 1.7;
+            line-height: 1.8;
             margin-bottom: 40px;
             word-break: keep-all;
+            text-align: justify;
         }
 
         .resume-section-title {
             font-size: 1.4rem;
             font-weight: 700;
-            margin: 30px 0 15px 0;
+            margin: 35px 0 20px 0;
             color: #000;
         }
 
         .resume-item {
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
 
         .resume-item-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .resume-item h3 {
@@ -306,7 +313,8 @@
             font-size: 1rem;
             color: #555;
             font-weight: 500;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            line-height: 1.4;
         }
 
         .resume-item span.date {
@@ -318,12 +326,12 @@
         .resume-item ul {
             padding-left: 20px;
             color: #444;
-            line-height: 1.6;
+            line-height: 1.75;
             font-size: 1rem;
         }
 
         .resume-item li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             word-break: keep-all;
         }
 
@@ -343,23 +351,23 @@
         .resume-side p {
             font-size: 0.95rem;
             color: #444;
-            margin-bottom: 8px;
-            line-height: 1.5;
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
 
         .resume-side ul {
             padding-left: 15px;
             color: #444;
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .resume-side li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .skill-group {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .skill-group label {
@@ -367,7 +375,7 @@
             font-size: 0.85rem;
             font-weight: 600;
             color: #666;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .skill-tags {
@@ -379,124 +387,11 @@
         .skill-tags span {
             background: #111;
             color: #fff;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 6px;
             font-size: 0.8rem;
             font-weight: 600;
         }
-
-        .visual-container {
-            position: relative;
-            width: 100%;
-            height: 720px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .phone-mockup {
-            width: 340px;
-            height: 680px;
-            background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
-            border: 14px solid #111;
-            border-radius: 50px;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #111;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .phone-mockup::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 30px;
-            background: #111;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
-
-        .mockup-text h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 6px;
-            letter-spacing: -0.02em;
-        }
-
-        .mockup-text p.role {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #007aff;
-            margin-bottom: 12px;
-        }
-
-        .mockup-text p.date {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .floating-card {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 18px 22px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            z-index: 5;
-            width: 330px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.5);
-        }
-
-        .card-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-        }
-
-        .card-content h4 {
-            font-size: 0.95rem;
-            margin-bottom: 3px;
-            font-weight: 700;
-            color: #111;
-        }
-
-        .card-content p {
-            font-size: 0.8rem;
-            color: #666;
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        .card-1 { top: 8%; left: 3%; }
-        .card-1 .card-icon { background: #e0f2fe; color: #0284c7; }
-
-        .card-2 { top: 32%; left: 0%; z-index: 15; }
-        .card-2 .card-icon { background: #fee2e2; color: #dc2626; }
-
-        .card-3 { bottom: 12%; left: 8%; }
-        .card-3 .card-icon { background: #dcfce7; color: #16a34a; }
-
-        .card-4 { top: 22%; right: 0%; z-index: 15; }
-        .card-4 .card-icon { background: #f3e8ff; color: #9333ea; }
-
-        .card-5 { bottom: 20%; right: 3%; }
-        .card-5 .card-icon { background: #fef08a; color: #ca8a04; }
 
         .category-section {
             margin-bottom: 50px;
@@ -670,18 +565,19 @@
         }
 
         .contact-profile-img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background-color: #e2e8f0;
-    background-image: url('./Media/내얼굴.jpg');
-    background-size: cover;
-    background-position: center;
-    margin: 0 auto 20px auto;
-    border: 4px solid #fff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-}
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+            background-image: url('./Media/내얼굴.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 20px auto;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
 
+        /* 미디엄 스크린 정의 (데스크탑 이하 태블릿/노트북) */
         @media (max-width: 1800px) {
             .top-right-brand {
                 display: none;
@@ -689,15 +585,7 @@
 
             .top-mini-nav {
                 width: auto;
-                flex-wrap: nowrap;
-                justify-content: center;
-                border-radius: 50px;
-                top: 26px;
-            }
-
-            .nav-btn {
-                padding: 10px 16px;
-                font-size: 0.85rem;
+                top: 20px;
             }
 
             .hero-text {
@@ -707,16 +595,12 @@
 
             .resume-container {
                 grid-template-columns: 1fr;
-                padding: 30px;
+                padding: 40px 30px;
                 gap: 40px;
-            }
-
-            .visual-container {
-                height: 600px;
-                transform: scale(0.85);
             }
         }
 
+        /* 모바일 화면 가독성 극대화 및 레이아웃 교정 */
         @media (max-width: 768px) {
             body {
                 overflow-x: hidden;
@@ -729,328 +613,188 @@
 
             .hero-wrap {
                 min-height: auto;
-                padding-bottom: 80px;
+                padding-bottom: 60px;
             }
 
             .hero-wrap::before {
-                width: 420px;
-                height: 320px;
-                top: -120px;
-                filter: blur(70px);
+                width: 320px;
+                height: 240px;
+                top: -80px;
+                filter: blur(50px);
             }
 
+            /* 상단 미니 바 간격 오류 및 정렬 완벽 수정 */
             .top-mini-nav {
-                position: sticky;
-                top: 10px;
-                left: auto;
-                transform: none;
-                width: calc(100% - 20px);
-                margin: 10px auto 0;
-                padding: 6px;
-                border-radius: 999px;
-                overflow-x: auto;
-                flex-wrap: nowrap;
-                justify-content: flex-start;
+                position: fixed;
+                top: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100% - 30px);
+                max-width: 380px;
+                margin: 0 auto;
+                padding: 5px;
+                border-radius: 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 gap: 4px;
-                scrollbar-width: none;
-            }
-
-            .top-mini-nav::-webkit-scrollbar {
-                display: none;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+                background: rgba(255, 255, 255, 0.85);
             }
 
             .nav-btn {
-                flex: 0 0 auto;
-                padding: 9px 12px;
-                font-size: 0.76rem;
-                gap: 5px;
+                flex: 1;
+                padding: 10px 0;
+                font-size: 0.82rem;
+                gap: 4px;
                 white-space: nowrap;
+                height: 36px;
             }
 
+            .nav-btn.active {
+                box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            }
+
+            /* 모바일 타이틀 가독성 수정 */
             .hero-text {
-                padding: 54px 20px 36px;
+                padding: 110px 20px 30px;
                 text-align: center;
             }
 
             .hero-text h1 {
-                font-size: 3rem;
-                line-height: 1;
-                margin-bottom: 18px;
-                letter-spacing: -0.04em;
+                font-size: 2.8rem;
+                margin-bottom: 14px;
+                letter-spacing: -0.03em;
             }
 
             .hero-text p {
-                font-size: 0.9rem;
-                line-height: 1.65;
-                max-width: 330px;
+                font-size: 0.95rem;
+                line-height: 1.7;
+                color: #444;
+                padding: 0 4px;
             }
 
             .tab-content {
-                padding: 0 18px;
-                max-width: 100%;
+                padding: 0 15px;
             }
 
+            /* 모바일 이력서 영역 여백 및 가독성 수정 */
             .resume-container {
                 display: block;
-                padding: 26px 20px;
+                padding: 30px 20px;
                 border-radius: 24px;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
+                background: #ffffff;
+                border: 1px solid rgba(0,0,0,0.08);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.02);
             }
 
             .resume-main h2 {
-                font-size: 1.45rem;
+                font-size: 1.4rem;
+                margin-bottom: 16px;
+                padding-bottom: 8px;
             }
 
             .resume-summary {
-                font-size: 0.92rem;
-                line-height: 1.7;
-                margin-bottom: 28px;
+                font-size: 0.93rem;
+                line-height: 1.75;
+                margin-bottom: 30px;
+                text-align: justify;
             }
 
             .resume-section-title {
-                font-size: 1.15rem;
-                margin: 24px 0 14px;
+                font-size: 1.2rem;
+                margin: 30px 0 16px;
             }
 
             .resume-item {
-                margin-bottom: 28px;
+                margin-bottom: 30px;
+                border-bottom: 1px dashed #eee;
+                padding-bottom: 20px;
+            }
+            
+            .resume-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
             }
 
             .resume-item-header {
-                display: block;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 4px;
+                margin-bottom: 6px;
             }
 
             .resume-item h3 {
-                font-size: 1.05rem;
-                margin-bottom: 4px;
+                font-size: 1.1rem;
+                line-height: 1.3;
             }
 
             .resume-item span.date {
-                display: block;
                 font-size: 0.82rem;
-                margin-bottom: 8px;
+                margin-bottom: 2px;
             }
 
             .resume-item .company-dept {
-                font-size: 0.9rem;
-                line-height: 1.5;
+                font-size: 0.88rem;
+                line-height: 1.4;
+                margin-bottom: 10px;
+                color: #666;
             }
 
             .resume-item ul {
-                padding-left: 18px;
+                padding-left: 16px;
                 font-size: 0.9rem;
-                line-height: 1.65;
+                line-height: 1.7;
+            }
+
+            .resume-item li {
+                margin-bottom: 8px;
             }
 
             .resume-side {
-                margin-top: 32px;
+                margin-top: 35px;
+                padding-top: 25px;
+                border-top: 2px solid #111;
             }
 
             .resume-side h2 {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+                margin-bottom: 14px;
+            }
+
+            .resume-side-block {
+                margin-bottom: 25px;
             }
 
             .resume-side p,
             .resume-side ul {
-                font-size: 0.88rem;
+                font-size: 0.9rem;
+                line-height: 1.6;
             }
 
             .skill-tags span {
-                font-size: 0.75rem;
-                padding: 4px 8px;
-            }
-
-            .visual-container {
-                height: auto;
-                transform: none;
-                display: block;
-                padding: 10px 0 40px;
-            }
-
-            .phone-mockup {
-                width: 240px;
-                height: 480px;
-                border-width: 10px;
-                border-radius: 38px;
-                margin: 0 auto 24px;
-            }
-
-            .phone-mockup::before {
-                width: 92px;
-                height: 24px;
-            }
-
-            .mockup-text h3 {
-                font-size: 1.25rem;
-            }
-
-            .mockup-text p.role {
-                font-size: 0.82rem;
-            }
-
-            .mockup-text p.date {
-                font-size: 0.75rem;
-            }
-
-            .floating-card {
-                position: static;
-                width: 100%;
-                margin: 12px 0;
-                padding: 15px 16px;
-                border-radius: 18px;
-            }
-
-            .card-icon {
-                width: 34px;
-                height: 34px;
-                font-size: 1rem;
-                flex-shrink: 0;
-            }
-
-            .card-content h4 {
-                font-size: 0.9rem;
-            }
-
-            .card-content p {
-                font-size: 0.76rem;
-            }
-
-            .category-section {
-                margin-bottom: 38px;
-            }
-
-            .category-title {
-                font-size: 1.1rem;
-                margin-bottom: 14px;
-                padding-bottom: 8px;
+                font-size: 0.78rem;
+                padding: 4px 10px;
             }
 
             .gallery-grid {
-                display: grid;
                 grid-template-columns: 1fr;
-                gap: 18px;
-            }
-
-            .media-card {
-                border-radius: 18px;
+                gap: 20px;
             }
 
             .thumb-wrapper {
-                height: 220px;
-            }
-
-            .media-info {
-                padding: 15px 16px;
-            }
-
-            .media-title {
-                font-size: 0.95rem;
-                margin-bottom: 8px;
-            }
-
-            .media-meta {
-                font-size: 0.78rem;
-            }
-
-            .badge {
-                font-size: 0.7rem;
-            }
-
-            .play-icon {
-                width: 44px;
-                height: 44px;
-                font-size: 16px;
+                height: 200px;
             }
 
             .placeholder-box {
-                padding: 54px 20px;
-                border-radius: 24px;
-                font-size: 0.95rem;
-            }
-
-            .contact-profile-img {
-                width: 110px;
-                height: 110px;
-            }
-
-            .modal-content-wrapper {
-                max-width: 92%;
-                max-height: 82vh;
-                border-radius: 14px;
-            }
-
-            .modal-content-wrapper img,
-            .modal-content-wrapper video {
-                max-height: 75vh;
-            }
-
-            .close-btn {
-                top: -44px;
-                right: 4px;
-                font-size: 32px;
+                padding: 60px 20px;
+                border-radius: 20px;
+                font-size: 1rem;
             }
         }
-            /* 모바일 크기 줄이기 추가 코드 */
-    @media (max-width: 768px) {
-        .top-mini-nav {
-            width: calc(100% - 24px);
-            margin: 8px auto 0;
-            padding: 5px;
-        }
-
-        .nav-btn {
-            padding: 7px 10px;
-            font-size: 0.7rem;
-            gap: 4px;
-        }
-
-        .hero-text {
-            padding: 42px 18px 26px;
-        }
-
-        .hero-text h1 {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-        }
-
-        .hero-text p {
-            font-size: 0.84rem;
-            line-height: 1.55;
-            max-width: 300px;
-        }
-
-        .resume-container {
-            padding: 22px 18px;
-            border-radius: 20px;
-        }
-
-        .resume-main h2 {
-            font-size: 1.25rem;
-            margin-bottom: 14px;
-        }
-
-        .resume-summary {
-            font-size: 0.86rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .resume-section-title {
-            font-size: 1.02rem;
-            margin: 20px 0 12px;
-        }
-
-        .resume-item h3 {
-            font-size: 0.98rem;
-        }
-
-        .resume-item .company-dept,
-        .resume-item ul,
-        .resume-side p,
-        .resume-side ul {
-            font-size: 0.84rem;
-        }
-    }
     </style>
 </head>
 
@@ -1237,172 +981,169 @@
         });
 
         const mediaData = [
-    { 
-        id: 1, 
-        category: "퍼플티 광고", 
-        title: "퍼플티 홍보 영상", 
-        type: "video", 
-        format: "YOUTUBE",
-        size: "-", 
-        src: "https://youtu.be/dXU0Z1Z-kig?si=79pLzpIX8XugLwOg",
-        thumb: "./ad_thumb.png" 
-    },
-    { 
-        id: 2, 
-        category: "퍼플티 광고", 
-        title: "퍼플티 광고 포스터", 
-        type: "image", 
-        format: "PNG", 
-        size: "-", 
-        src: "./purple_promotion.png",
-        thumb: "./purple_promotion.png" 
-    },
+            { 
+                id: 1, 
+                category: "퍼플티 광고", 
+                title: "퍼플티 홍보 영상", 
+                type: "video", 
+                format: "YOUTUBE",
+                size: "-", 
+                src: "https://youtu.be/dXU0Z1Z-kig?si=79pLzpIX8XugLwOg",
+                thumb: "./ad_thumb.png" 
+            },
+            { 
+                id: 2, 
+                category: "퍼플티 광고", 
+                title: "퍼플티 광고 포스터", 
+                type: "image", 
+                format: "PNG", 
+                size: "-", 
+                src: "./Media/%ED%8D%BC%ED%94%8C%ED%8B%B0%20%EA%B2%BD%EA%B3%A0/purple_promotion.png",
+                thumb: "./Media/%ED%8D%BC%ED%94%8C%ED%8B%B0%20%EA%B2%BD%EA%B3%A0/purple_promotion.png" 
+            },
+            { 
+                id: 3, 
+                category: "추가 작업물", 
+                title: "추가 작업물 01", 
+                type: "image", 
+                format: "PNG", 
+                size: "-", 
+                src: "./extra_work_01.png",
+                thumb: "./extra_work_01.png" 
+            },
+            { 
+                id: 4, 
+                category: "추가 작업물", 
+                title: "추가 작업물 02", 
+                type: "image", 
+                format: "PNG", 
+                size: "-", 
+                src: "./extra_work_02.png",
+                thumb: "./extra_work_02.png" 
+            },
+            { 
+                id: 5, 
+                category: "추가 작업물", 
+                title: "추가 작업물 03", 
+                type: "image", 
+                format: "PNG", 
+                size: "-", 
+                src: "./extra_work_03.png",
+                thumb: "./extra_work_03.png" 
+            },
+            { 
+                id: 6, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 01", 
+                type: "image", 
+                format: "PNG", 
+                size: "1.2 MB", 
+                src: "./char_image_01.png", 
+                thumb: "./char_image_01.png" 
+            },
+            { 
+                id: 7, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 02", 
+                type: "image", 
+                format: "PNG", 
+                size: "1.5 MB", 
+                src: "./char_image_02.png", 
+                thumb: "./char_image_02.png" 
+            },
+            { 
+                id: 8, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 03", 
+                type: "image", 
+                format: "PNG", 
+                size: "2.1 MB", 
+                src: "./char_image_03.png", 
+                thumb: "./char_image_03.png" 
+            },
+            { 
+                id: 9, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 04", 
+                type: "image", 
+                format: "PNG", 
+                size: "1.8 MB", 
+                src: "./char_image_04.png", 
+                thumb: "./char_image_04.png" 
+            },
+            { 
+                id: 10, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 05", 
+                type: "image", 
+                format: "PNG", 
+                size: "2.4 MB", 
+                src: "./char_image_05.png", 
+                thumb: "./char_image_05.png" 
+            },
+            { 
+                id: 11, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 06", 
+                type: "image", 
+                format: "PNG", 
+                size: "1.9 MB", 
+                src: "./char_image_06.png", 
+                thumb: "./char_image_06.png" 
+            },
+            { 
+                id: 12, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 07", 
+                type: "image", 
+                format: "PNG", 
+                size: "2.0 MB", 
+                src: "./char_image_07.png", 
+                thumb: "./char_image_07.png" 
+            },
+            { 
+                id: 13, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 08", 
+                type: "image", 
+                format: "PNG", 
+                size: "2.2 MB", 
+                src: "./char_image_08.png", 
+                thumb: "./char_image_08.png" 
+            },
+            { 
+                id: 14, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 09", 
+                type: "image", 
+                format: "PNG", 
+                size: "1.7 MB", 
+                src: "./char_image_09.png", 
+                thumb: "./char_image_09.png" 
+            },
+            { 
+                id: 15, 
+                category: "캐릭터 제작", 
+                title: "2D 캐릭터 이미지 제작 10", 
+                type: "image", 
+                format: "PNG", 
+                size: "1.4 MB", 
+                src: "./char_image_10.png", 
+                thumb: "./char_image_10.png" 
+            },
+            { 
+                id: 16, 
+                category: "카페 이미지 생성", 
+                title: "모던 카페 인테리어", 
+                type: "image", 
+                format: "PNG", 
+                size: "2.4 MB", 
+                src: "./Media/cafe/cafe_modern.png",
+                thumb: "./Media/cafe/cafe_modern.png" 
+            }
+        ];
 
-    { 
-        id: 3, 
-        category: "추가 작업물", 
-        title: "추가 작업물 01", 
-        type: "image", 
-        format: "PNG", 
-        size: "-", 
-        src: "./extra_work_01.png",
-        thumb: "./extra_work_01.png" 
-    },
-    { 
-        id: 4, 
-        category: "추가 작업물", 
-        title: "추가 작업물 02", 
-        type: "image", 
-        format: "PNG", 
-        size: "-", 
-        src: "./extra_work_02.png",
-        thumb: "./extra_work_02.png" 
-    },
-    { 
-        id: 5, 
-        category: "추가 작업물", 
-        title: "추가 작업물 03", 
-        type: "image", 
-        format: "PNG", 
-        size: "-", 
-        src: "./extra_work_03.png",
-        thumb: "./extra_work_03.png" 
-    },
-
-    { 
-        id: 6, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 01", 
-        type: "image", 
-        format: "PNG", 
-        size: "1.2 MB", 
-        src: "./char_image_01.png", 
-        thumb: "./char_image_01.png" 
-    },
-    { 
-        id: 7, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 02", 
-        type: "image", 
-        format: "PNG", 
-        size: "1.5 MB", 
-        src: "./char_image_02.png", 
-        thumb: "./char_image_02.png" 
-    },
-    { 
-        id: 8, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 03", 
-        type: "image", 
-        format: "PNG", 
-        size: "2.1 MB", 
-        src: "./char_image_03.png", 
-        thumb: "./char_image_03.png" 
-    },
-    { 
-        id: 9, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 04", 
-        type: "image", 
-        format: "PNG", 
-        size: "1.8 MB", 
-        src: "./char_image_04.png", 
-        thumb: "./char_image_04.png" 
-    },
-    { 
-        id: 10, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 05", 
-        type: "image", 
-        format: "PNG", 
-        size: "2.4 MB", 
-        src: "./char_image_05.png", 
-        thumb: "./char_image_05.png" 
-    },
-    { 
-        id: 11, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 06", 
-        type: "image", 
-        format: "PNG", 
-        size: "1.9 MB", 
-        src: "./char_image_06.png", 
-        thumb: "./char_image_06.png" 
-    },
-    { 
-        id: 12, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 07", 
-        type: "image", 
-        format: "PNG", 
-        size: "2.0 MB", 
-        src: "./char_image_07.png", 
-        thumb: "./char_image_07.png" 
-    },
-    { 
-        id: 13, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 08", 
-        type: "image", 
-        format: "PNG", 
-        size: "2.2 MB", 
-        src: "./char_image_08.png", 
-        thumb: "./char_image_08.png" 
-    },
-    { 
-        id: 14, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 09", 
-        type: "image", 
-        format: "PNG", 
-        size: "1.7 MB", 
-        src: "./char_image_09.png", 
-        thumb: "./char_image_09.png" 
-    },
-    { 
-        id: 15, 
-        category: "캐릭터 제작", 
-        title: "2D 캐릭터 이미지 제작 10", 
-        type: "image", 
-        format: "PNG", 
-        size: "1.4 MB", 
-        src: "./char_image_10.png", 
-        thumb: "./char_image_10.png" 
-    },
-
-    { 
-        id: 16, 
-        category: "카페 이미지 생성", 
-        title: "모던 카페 인테리어", 
-        type: "image", 
-        format: "PNG", 
-        size: "2.4 MB", 
-        src: "./Media/cafe/cafe_modern.png",
-        thumb: "./Media/cafe/cafe_modern.png" 
-    }
-];
-
-const categories = ["퍼플티 광고", "추가 작업물", "캐릭터 제작", "카페 이미지 생성"];
+        const categories = ["퍼플티 광고", "추가 작업물", "캐릭터 제작", "카페 이미지 생성"];
         const galleryContainer = document.getElementById("gallery-container");
 
         function renderGallery() {
@@ -1476,7 +1217,7 @@ const categories = ["퍼플티 광고", "추가 작업물", "캐릭터 제작", 
                     `;
                 } else {
                     const video = document.createElement("video");
-                    video.src = item.src;
+                    video.src = video.src;
                     video.controls = true;
                     video.autoplay = true;
                     video.style.width = "100%";
