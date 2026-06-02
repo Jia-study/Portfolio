@@ -975,6 +975,7 @@
             });
         });
 
+        // 중요: 한글 폴더명을 영문 'purple_ad'로 변경했을 때 완벽 작동하는 경로 세팅
         const mediaData = [
             { 
                 id: 1, 
@@ -993,8 +994,8 @@
                 type: "image", 
                 format: "PNG", 
                 size: "-", 
-                src: "./Media/퍼플티 광고/purple_promotion.png",
-                thumb: "./Media/퍼플티 광고/purple_promotion.png" 
+                src: "./Media/purple_ad/purple_promotion.png",
+                thumb: "./Media/purple_ad/purple_promotion.png" 
             },
             { 
                 id: 3, 
@@ -1127,4 +1128,112 @@
                 thumb: "./char_image_10.png" 
             },
             { 
-                id: 1
+                id: 16, 
+                category: "카페 이미지 생성", 
+                title: "모던 카페 인테리어", 
+                type: "image", 
+                format: "PNG", 
+                size: "2.4 MB", 
+                src: "./Media/cafe/cafe_modern.png",
+                thumb: "./Media/cafe/cafe_modern.png" 
+            }
+        ];
+
+        const categories = ["퍼플티 광고", "추가 작업물", "캐릭터 제작", "카페 이미지 생성"];
+        const galleryContainer = document.getElementById("gallery-container");
+
+        function renderGallery() {
+            galleryContainer.innerHTML = "";
+
+            categories.forEach(category => {
+                const items = mediaData.filter(data => data.category === category);
+                if (items.length === 0) return;
+
+                const section = document.createElement("div");
+                section.className = "category-section";
+
+                const title = document.createElement("h3");
+                title.className = "category-title";
+                title.textContent = category;
+                section.appendChild(title);
+
+                const grid = document.createElement("div");
+                grid.className = "gallery-grid";
+
+                items.forEach(item => {
+                    const card = document.createElement("div");
+                    card.className = "media-card";
+                    card.setAttribute("data-type", item.type);
+                    card.onclick = () => openModal(item);
+
+                    card.innerHTML = `
+                        <div class="thumb-wrapper">
+                            <img src="${item.thumb}" alt="${item.title}">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="media-info">
+                            <h4 class="media-title">${item.title}</h4>
+                            <div class="media-meta">
+                                <span class="badge">${item.format}</span>
+                                <span>${item.size}</span>
+                            </div>
+                        </div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+                section.appendChild(grid);
+                galleryContainer.appendChild(section);
+            });
+        }
+
+        renderGallery();
+
+        const modal = document.getElementById("mediaModal");
+        const modalContent = document.getElementById("modalContent");
+
+        function openModal(item) {
+            modalContent.innerHTML = "";
+
+            if (item.type === "image") {
+                const img = document.createElement("img");
+                img.src = item.src;
+                img.alt = item.title;
+                modalContent.appendChild(img);
+            } else if (item.type === "video") {
+                if (item.format === "YOUTUBE") {
+                    modalContent.innerHTML = `
+                        <div style="text-align: center; padding: 50px; color: white;">
+                            <p style="margin-bottom: 20px;">유튜브에서 영상 시청하기</p>
+                            <a href="${item.src}" target="_blank" style="padding: 15px 30px; background: #ff0000; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+                                ▶ YouTube 열기
+                            </a>
+                        </div>
+                    `;
+                } else {
+                    const video = document.createElement("video");
+                    video.src = item.src;
+                    video.controls = true;
+                    video.autoplay = true;
+                    video.style.width = "100%";
+                    modalContent.appendChild(video);
+                }
+            }
+
+            modal.classList.add("active");
+        }
+
+        function closeModal() {
+            modalContent.innerHTML = "";
+            modal.classList.remove("active");
+        }
+
+        modal.addEventListener("click", function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
