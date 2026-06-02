@@ -577,7 +577,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
-        /* 미디엄 스크린 정의 (데스크탑 이하 태블릿/노트북) */
         @media (max-width: 1800px) {
             .top-right-brand {
                 display: none;
@@ -600,7 +599,6 @@
             }
         }
 
-        /* 모바일 화면 가독성 극대화 및 레이아웃 교정 */
         @media (max-width: 768px) {
             body {
                 overflow-x: hidden;
@@ -623,7 +621,6 @@
                 filter: blur(50px);
             }
 
-            /* 상단 미니 바 간격 오류 및 정렬 완벽 수정 */
             .top-mini-nav {
                 position: fixed;
                 top: 15px;
@@ -655,7 +652,6 @@
                 box-shadow: 0 2px 6px rgba(0,0,0,0.08);
             }
 
-            /* 모바일 타이틀 가독성 수정 */
             .hero-text {
                 padding: 110px 20px 30px;
                 text-align: center;
@@ -678,7 +674,6 @@
                 padding: 0 15px;
             }
 
-            /* 모바일 이력서 영역 여백 및 가독성 수정 */
             .resume-container {
                 display: block;
                 padding: 30px 20px;
@@ -998,8 +993,8 @@
                 type: "image", 
                 format: "PNG", 
                 size: "-", 
-                src: "./Media/%ED%8D%BC%ED%94%8C%ED%8B%B0%20%EA%B2%BD%EA%B3%A0/purple_promotion.png",
-                thumb: "./Media/%ED%8D%BC%ED%94%8C%ED%8B%B0%20%EA%B2%BD%EA%B3%A0/purple_promotion.png" 
+                src: "./Media/퍼플티 광고/purple_promotion.png",
+                thumb: "./Media/퍼플티 광고/purple_promotion.png" 
             },
             { 
                 id: 3, 
@@ -1132,112 +1127,4 @@
                 thumb: "./char_image_10.png" 
             },
             { 
-                id: 16, 
-                category: "카페 이미지 생성", 
-                title: "모던 카페 인테리어", 
-                type: "image", 
-                format: "PNG", 
-                size: "2.4 MB", 
-                src: "./Media/cafe/cafe_modern.png",
-                thumb: "./Media/cafe/cafe_modern.png" 
-            }
-        ];
-
-        const categories = ["퍼플티 광고", "추가 작업물", "캐릭터 제작", "카페 이미지 생성"];
-        const galleryContainer = document.getElementById("gallery-container");
-
-        function renderGallery() {
-            galleryContainer.innerHTML = "";
-
-            categories.forEach(category => {
-                const items = mediaData.filter(data => data.category === category);
-                if (items.length === 0) return;
-
-                const section = document.createElement("div");
-                section.className = "category-section";
-
-                const title = document.createElement("h3");
-                title.className = "category-title";
-                title.textContent = category;
-                section.appendChild(title);
-
-                const grid = document.createElement("div");
-                grid.className = "gallery-grid";
-
-                items.forEach(item => {
-                    const card = document.createElement("div");
-                    card.className = "media-card";
-                    card.setAttribute("data-type", item.type);
-                    card.onclick = () => openModal(item);
-
-                    card.innerHTML = `
-                        <div class="thumb-wrapper">
-                            <img src="${item.thumb}" alt="${item.title}">
-                            <div class="play-icon">▶</div>
-                        </div>
-                        <div class="media-info">
-                            <h4 class="media-title">${item.title}</h4>
-                            <div class="media-meta">
-                                <span class="badge">${item.format}</span>
-                                <span>${item.size}</span>
-                            </div>
-                        </div>
-                    `;
-
-                    grid.appendChild(card);
-                });
-
-                section.appendChild(grid);
-                galleryContainer.appendChild(section);
-            });
-        }
-
-        renderGallery();
-
-        const modal = document.getElementById("mediaModal");
-        const modalContent = document.getElementById("modalContent");
-
-        function openModal(item) {
-            modalContent.innerHTML = "";
-
-            if (item.type === "image") {
-                const img = document.createElement("img");
-                img.src = item.src;
-                img.alt = item.title;
-                modalContent.appendChild(img);
-            } else if (item.type === "video") {
-                if (item.format === "YOUTUBE") {
-                    modalContent.innerHTML = `
-                        <div style="text-align: center; padding: 50px; color: white;">
-                            <p style="margin-bottom: 20px;">유튜브에서 영상 시청하기</p>
-                            <a href="${item.src}" target="_blank" style="padding: 15px 30px; background: #ff0000; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
-                                ▶ YouTube 열기
-                            </a>
-                        </div>
-                    `;
-                } else {
-                    const video = document.createElement("video");
-                    video.src = video.src;
-                    video.controls = true;
-                    video.autoplay = true;
-                    video.style.width = "100%";
-                    modalContent.appendChild(video);
-                }
-            }
-
-            modal.classList.add("active");
-        }
-
-        function closeModal() {
-            modalContent.innerHTML = "";
-            modal.classList.remove("active");
-        }
-
-        modal.addEventListener("click", function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-    </script>
-</body>
-</html>
+                id: 1
