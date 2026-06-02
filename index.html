@@ -430,84 +430,181 @@
             });
         });
 
-        const mediaData = [
-            { 
-                id: 1, 
-                category: "광고 영상 제작", 
-                title: "퍼플티 홍보 영상", 
-                type: "video", 
-                format: "YOUTUBE",
-                size: "-", 
-                src: "https://youtu.be/dXU0Z1Z-kig?si=79pLzpIX8XugLwOg",
-                thumb: "./Media/퍼플티 광고/ad_thumb.jpg" 
-            },
-            { id: 2, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 01", type: "image", format: "PNG", size: "1.2 MB", src: "./Media/캐릭터제작/char_image_01.png", thumb: "./Media/캐릭터제작/char_image_01.png" },
-            { id: 3, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 02", type: "image", format: "PNG", size: "1.5 MB", src: "./Media/캐릭터제작/char_image_02.png", thumb: "./Media/캐릭터제작/char_image_02.png" },
-            { id: 4, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 03", type: "image", format: "PNG", size: "2.1 MB", src: "./Media/캐릭터제작/char_image_03.png", thumb: "./Media/캐릭터제작/char_image_03.png" },
-            { id: 5, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 04", type: "image", format: "PNG", size: "1.8 MB", src: "./Media/캐릭터제작/char_image_04.png", thumb: "./Media/캐릭터제작/char_image_04.png" },
-            { id: 6, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 05", type: "image", format: "PNG", size: "2.4 MB", src: "./Media/캐릭터제작/char_image_05.png", thumb: "./Media/캐릭터제작/char_image_05.png" },
-            { id: 7, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 06", type: "image", format: "PNG", size: "1.9 MB", src: "./Media/캐릭터제작/char_image_06.png", thumb: "./Media/캐릭터제작/char_image_06.png" },
-            { id: 8, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 07", type: "image", format: "PNG", size: "2.0 MB", src: "./Media/캐릭터제작/char_image_07.png", thumb: "./Media/캐릭터제작/char_image_07.png" },
-            { id: 9, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 08", type: "image", format: "PNG", size: "2.2 MB", src: "./Media/캐릭터제작/char_image_08.png", thumb: "./Media/캐릭터제작/char_image_08.png" },
-            { id: 10, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 09", type: "image", format: "PNG", size: "1.7 MB", src: "./Media/캐릭터제작/char_image_09.png", thumb: "./Media/캐릭터제작/char_image_09.png" },
-            { id: 11, category: "캐릭터제작", title: "2D 캐릭터 이미지 제작 10", type: "image", format: "PNG", size: "1.4 MB", src: "./Media/캐릭터제작/char_image_10.png", thumb: "./Media/캐릭터제작/char_image_10.png" },
-            { 
-                id: 12, 
-                category: "카페 이미지 생성", 
-                title: "모던 카페 인테리어", 
-                type: "image", 
-                format: "PNG", 
-                size: "2.4 MB", 
-                src: "./Media/카페이미지생성/cafe_modern.png",
-                thumb: "./Media/카페이미지생성/cafe_modern.png" 
-            }
-        ];
+const mediaData = [
+    { 
+        id: 1, 
+        category: "퍼플티 광고", 
+        title: "퍼플티 홍보 영상", 
+        type: "video", 
+        format: "YOUTUBE",
+        size: "-", 
+        src: "https://youtu.be/dXU0Z1Z-kig?si=79pLzpIX8XugLwOg",
+        thumb: "./Media/퍼플티 광고/ad_thumb.jpg" 
+    },
 
-        const categories = ["퍼플티 광고", "캐릭터제작", "카페이미지생성"];
-        const galleryContainer = document.getElementById("gallery-container");
+    { 
+        id: 2, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 01", 
+        type: "image", 
+        format: "PNG", 
+        size: "1.2 MB", 
+        src: "./Media/캐릭터 제작/char_image_01.png", 
+        thumb: "./Media/캐릭터 제작/char_image_01.png" 
+    },
+    { 
+        id: 3, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 02", 
+        type: "image", 
+        format: "PNG", 
+        size: "1.5 MB", 
+        src: "./Media/캐릭터 제작/char_image_02.png", 
+        thumb: "./Media/캐릭터 제작/char_image_02.png" 
+    },
+    { 
+        id: 4, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 03", 
+        type: "image", 
+        format: "PNG", 
+        size: "2.1 MB", 
+        src: "./Media/캐릭터 제작/char_image_03.png", 
+        thumb: "./Media/캐릭터 제작/char_image_03.png" 
+    },
+    { 
+        id: 5, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 04", 
+        type: "image", 
+        format: "PNG", 
+        size: "1.8 MB", 
+        src: "./Media/캐릭터 제작/char_image_04.png", 
+        thumb: "./Media/캐릭터 제작/char_image_04.png" 
+    },
+    { 
+        id: 6, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 05", 
+        type: "image", 
+        format: "PNG", 
+        size: "2.4 MB", 
+        src: "./Media/캐릭터 제작/char_image_05.png", 
+        thumb: "./Media/캐릭터 제작/char_image_05.png" 
+    },
+    { 
+        id: 7, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 06", 
+        type: "image", 
+        format: "PNG", 
+        size: "1.9 MB", 
+        src: "./Media/캐릭터 제작/char_image_06.png", 
+        thumb: "./Media/캐릭터 제작/char_image_06.png" 
+    },
+    { 
+        id: 8, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 07", 
+        type: "image", 
+        format: "PNG", 
+        size: "2.0 MB", 
+        src: "./Media/캐릭터 제작/char_image_07.png", 
+        thumb: "./Media/캐릭터 제작/char_image_07.png" 
+    },
+    { 
+        id: 9, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 08", 
+        type: "image", 
+        format: "PNG", 
+        size: "2.2 MB", 
+        src: "./Media/캐릭터 제작/char_image_08.png", 
+        thumb: "./Media/캐릭터 제작/char_image_08.png" 
+    },
+    { 
+        id: 10, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 09", 
+        type: "image", 
+        format: "PNG", 
+        size: "1.7 MB", 
+        src: "./Media/캐릭터 제작/char_image_09.png", 
+        thumb: "./Media/캐릭터 제작/char_image_09.png" 
+    },
+    { 
+        id: 11, 
+        category: "캐릭터 제작", 
+        title: "2D 캐릭터 이미지 제작 10", 
+        type: "image", 
+        format: "PNG", 
+        size: "1.4 MB", 
+        src: "./Media/캐릭터 제작/char_image_10.png", 
+        thumb: "./Media/캐릭터 제작/char_image_10.png" 
+    },
 
-        function renderGallery() {
-            categories.forEach(category => {
-                const items = mediaData.filter(data => data.category === category);
-                if (items.length === 0) return;
+    { 
+        id: 12, 
+        category: "카페 이미지 생성", 
+        title: "모던 카페 인테리어", 
+        type: "image", 
+        format: "PNG", 
+        size: "2.4 MB", 
+        src: "./Media/카페이미지생성/cafe_modern.png",
+        thumb: "./Media/카페이미지생성/cafe_modern.png" 
+    }
+];
 
-                const section = document.createElement("div");
-                section.className = "category-section";
-                
-                const title = document.createElement("h3");
-                title.className = "category-title";
-                title.textContent = category;
-                section.appendChild(title);
+const categories = ["퍼플티 광고", "캐릭터 제작", "카페 이미지 생성"];
+const galleryContainer = document.getElementById("gallery-container");
 
-                const grid = document.createElement("div");
-                grid.className = "gallery-grid";
+function renderGallery() {
+    galleryContainer.innerHTML = "";
 
-                items.forEach(item => {
-                    const card = document.createElement("div");
-                    card.className = "media-card";
-                    card.setAttribute("data-type", item.type);
-                    card.onclick = () => openModal(item);
+    categories.forEach(category => {
+        const items = mediaData.filter(data => data.category === category);
+        if (items.length === 0) return;
 
-                    card.innerHTML = `
-                        <div class="thumb-wrapper">
-                            <img src="${item.thumb}" alt="${item.title}">
-                            <div class="play-icon">▶</div>
-                        </div>
-                        <div class="media-info">
-                            <h4 class="media-title">${item.title}</h4>
-                            <div class="media-meta">
-                                <span class="badge">${item.format}</span>
-                                <span>${item.size}</span>
-                            </div>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
-                section.appendChild(grid);
-                galleryContainer.appendChild(section);
-            });
-        }
-        renderGallery();
+        const section = document.createElement("div");
+        section.className = "category-section";
+        
+        const title = document.createElement("h3");
+        title.className = "category-title";
+        title.textContent = category;
+        section.appendChild(title);
+
+        const grid = document.createElement("div");
+        grid.className = "gallery-grid";
+
+        items.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "media-card";
+            card.setAttribute("data-type", item.type);
+            card.onclick = () => openModal(item);
+
+            card.innerHTML = `
+                <div class="thumb-wrapper">
+                    <img src="${item.thumb}" alt="${item.title}">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="media-info">
+                    <h4 class="media-title">${item.title}</h4>
+                    <div class="media-meta">
+                        <span class="badge">${item.format}</span>
+                        <span>${item.size}</span>
+                    </div>
+                </div>
+            `;
+
+            grid.appendChild(card);
+        });
+
+        section.appendChild(grid);
+        galleryContainer.appendChild(section);
+    });
+}
+
+renderGallery();
 
         const modal = document.getElementById("mediaModal");
         const modalContent = document.getElementById("modalContent");
