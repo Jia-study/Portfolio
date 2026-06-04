@@ -219,6 +219,16 @@
             z-index: 2;
         }
 
+        /* 신규 스타일: Portfolio 상단에 배치될 이름 정의 */
+        .hero-text .user-name {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+            display: block;
+        }
+
         .hero-text h1 {
             font-size: 4.5rem;
             font-weight: 900;
@@ -236,12 +246,11 @@
             word-break: keep-all;
         }
 
-        /* 데스크탑 화면에서 상단 바와 겹치지 않도록 여백 부여 */
         .tab-content {
             display: none;
             max-width: 1300px;
             margin: 0 auto;
-            padding: 40px 20px 0; 
+            padding: 20px 20px 0; /* 박스를 위로 당기기 위해 상단 패딩 축소 */
             animation: fadeIn 0.4s ease forwards;
             position: relative;
             z-index: 2;
@@ -269,12 +278,30 @@
             margin-bottom: 60px;
         }
 
-        .resume-main h2 {
-            font-size: 1.8rem;
+        /* 이력서 메인 타이틀 플렉스 정렬 구조 */
+        .resume-main-title-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
             margin-bottom: 24px;
             border-bottom: 2px solid #111;
             padding-bottom: 12px;
+        }
+
+        .resume-main h2 {
+            font-size: 1.8rem;
             font-weight: 800;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 신규 스타일: 이력서 타이틀 옆 경력사항 텍스트 규격 */
+        .resume-main .experience-duration {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #666;
+            letter-spacing: -0.01em;
         }
 
         .resume-summary {
@@ -653,8 +680,9 @@
                 box-shadow: 0 2px 6px rgba(0,0,0,0.08);
             }
 
+            /* 모바일 고정 바 영역만큼 본문 소개글 상단 여백 확보 */
             .hero-text {
-                padding: 110px 20px 30px;
+                padding: 115px 20px 24px;
                 text-align: center;
             }
 
@@ -675,9 +703,9 @@
                 padding: 0 4px;
             }
 
-            /* 모바일 환경에서 상단 네비게이션과 내용물이 완벽하게 안 겹치도록 padding-top 확장 고정 */
+            /* 본문 박스를 좀 더 위로 부착하기 위해 상단 패딩 전면 축소 */
             .tab-content {
-                padding: 80px 15px 0;
+                padding: 20px 15px 0;
             }
 
             .resume-container {
@@ -690,10 +718,20 @@
                 box-shadow: 0 8px 24px rgba(0,0,0,0.02);
             }
 
-            .resume-main h2 {
-                font-size: 1.4rem;
+            /* 모바일 이력서 타이틀 및 경력기간 플렉스 정렬 */
+            .resume-main-title-wrap {
                 margin-bottom: 16px;
                 padding-bottom: 8px;
+                align-items: baseline;
+                gap: 8px;
+            }
+
+            .resume-main h2 {
+                font-size: 1.4rem;
+            }
+
+            .resume-main .experience-duration {
+                font-size: 0.93rem;
             }
 
             .resume-summary {
@@ -812,8 +850,9 @@
             <div class="nav-btn" data-target="contact">✉️ Contact</div>
         </nav>
 
-        <!-- 원상 복구: 이제 상단 소개글 영역이 탭을 옮겨도 항시 고정되어 유지됩니다. -->
         <div class="hero-text" id="main-hero-text">
+            <!-- 요청 반영: Portfolio 상단에 덜 볼드한 '최지아' 배치 완료 -->
+            <span class="user-name">최지아</span>
             <h1>Portfolio</h1>
             <p>
                 데이터 전처리부터 리스크 방지 기획까지.<br>
@@ -825,7 +864,11 @@
         <div class="tab-content active" id="section-resume">
             <div class="resume-container">
                 <div class="resume-main">
-                    <h2>이력서</h2>
+                    <!-- 요청 반영: 이력서 글자 옆에 본문 크기로 경력 표기 세팅 완료 -->
+                    <div class="resume-main-title-wrap">
+                        <h2>이력서</h2>
+                        <span class="experience-duration">(총 경력 3년 8개월)</span>
+                    </div>
 
                     <p class="resume-summary">
                         바이트댄스 코리아(TikTok)에서 Content Quality Specialist로 근무하며 숏폼 비디오 및 플랫폼 리스크 신호를 분석하고 콘텐츠 품질을 관리한 실무자입니다.
@@ -1200,7 +1243,7 @@
                         <div style="text-align: center; padding: 50px; color: white;">
                             <p style="margin-bottom: 20px;">유튜브에서 영상 시청하기</p>
                             <a href="${item.src}" target="_blank" style="padding: 15px 30px; background: #ff0000; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
-                                ▶ YouTube 열기
+                                ▶ YouTube Wol-gi
                             </a>
                         </div>
                     `;
