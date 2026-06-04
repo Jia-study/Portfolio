@@ -434,6 +434,15 @@
             letter-spacing: -0.02em;
         }
 
+        .category-desc {
+            font-size: 0.8rem;
+            color: #333333;
+            margin-top: -12px;
+            margin-bottom: 24px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -457,7 +466,7 @@
 
         .thumb-wrapper {
             width: 100%;
-            height: 380px; 
+            height: 240px; 
             background-color: #f1f5f9;
             position: relative;
             overflow: hidden;
@@ -518,13 +527,18 @@
         }
 
         .badge {
-            background: #f1f5f9;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.9);
             padding: 4px 8px;
             border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.75rem;
-            color: #475569;
-            border: 1px solid #e2e8f0;
+            font-weight: 700;
+            font-size: 0.72rem;
+            color: #111;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            z-index: 10;
         }
 
         .modal {
@@ -584,7 +598,7 @@
 
         .placeholder-box {
             text-align: center;
-            padding: 100px 20px;
+            padding: 60px 20px 90px;
             background: rgba(255,255,255,0.6);
             border-radius: 30px;
             border: 1px dashed #cbd5e1;
@@ -687,7 +701,7 @@
             }
 
             .thumb-wrapper {
-                height: 340px; 
+                height: 200px; 
             }
 
             .hero-text h1 {
@@ -825,9 +839,57 @@
             }
 
             .placeholder-box {
-                padding: 60px 20px;
+                padding: 40px 20px 60px;
                 border-radius: 20px;
                 font-size: 1rem;
+            }
+        }
+
+        /* AI 프로젝트 탭 활성화 시 헤더 소개글 숨김 및 여백 조정 */
+        .hero-wrap.hide-hero .hero-text {
+            display: none;
+        }
+        .hero-wrap.hide-hero .tab-content {
+            padding-top: 100px;
+        }
+        @media (max-width: 768px) {
+            .hero-wrap.hide-hero .tab-content {
+                padding-top: 80px;
+            }
+        }
+        /* 모달 내 그리드 갤러리 스타일 */
+        .modal-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding: 30px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            background: #000;
+        }
+        @media (max-width: 768px) {
+            .modal-gallery-grid {
+                grid-template-columns: 1fr;
+                padding: 15px;
+                gap: 10px;
+            }
+        }
+        .modal-gallery-img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+            object-fit: contain;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+        }
+        /* Contact 탭 점선 박스 자체의 상단 마진을 줄여 위로 당기기 */
+        #section-contact {
+            margin-top: -30px;
+        }
+        @media (max-width: 768px) {
+            #section-contact {
+                margin-top: -15px;
             }
         }
     </style>
@@ -998,6 +1060,7 @@
     <script>
         const navButtons = document.querySelectorAll('.nav-btn');
         const sections = document.querySelectorAll('.tab-content');
+        const heroWrap = document.querySelector('.hero-wrap');
 
         navButtons.forEach(button => {
             button.addEventListener('click', function() {
@@ -1006,6 +1069,13 @@
 
                 const targetName = this.getAttribute('data-target');
                 const targetId = 'section-' + targetName;
+
+                // AI 프로젝트 탭일 경우 소개글 숨김 클래스 토글
+                if (targetName === 'ai_project') {
+                    heroWrap.classList.add('hide-hero');
+                } else {
+                    heroWrap.classList.remove('hide-hero');
+                }
 
                 sections.forEach(sec => {
                     if (sec.id === targetId) {
@@ -1028,9 +1098,9 @@
                 category: "퍼플티 광고", 
                 title: "퍼플티 홍보 영상", 
                 type: "video", 
-                format: "YOUTUBE",
+                format: "MP4", 
                 size: "-", 
-                src: "https://youtu.be/dXU0Z1Z-kig?si=79pLzpIX8XugLwOg",
+                src: "./Media/purple_ad/purple_ad.mp4",
                 thumb: "./Media/purple_ad/ad_thumb.png" 
             },
             { 
@@ -1044,138 +1114,81 @@
                 thumb: "./Media/purple_ad/purple_promotion.png" 
             },
             { 
-                id: 3, 
-                category: "추가 작업물", 
-                title: "추가 작업물 01", 
+                id: 5, 
+                category: "퍼플티 광고", 
+                title: "퍼플티 브랜드 시트", 
                 type: "image", 
                 format: "PNG", 
                 size: "-", 
-                src: "./extra_work_01.png",
-                thumb: "./extra_work_01.png" 
+                src: "./Media/purple_ad/brandsheet.png",
+                thumb: "./Media/purple_ad/brandsheet.png" 
+            },
+            { 
+                id: 3, 
+                category: "추가 작업물", 
+                title: "추가 작업물 01 코스메틱 이미지", 
+                type: "image", 
+                format: "PNG", 
+                size: "-", 
+                src: "./Media/extra_work/extra_work_01.png",
+                thumb: "./Media/extra_work/extra_work_01.png" 
             },
             { 
                 id: 4, 
                 category: "추가 작업물", 
-                title: "추가 작업물 02", 
-                type: "image", 
-                format: "PNG", 
+                title: "추가 작업물 02 로고 동영상", 
+                type: "video", 
+                format: "MP4", 
                 size: "-", 
-                src: "./extra_work_02.png",
-                thumb: "./extra_work_02.png" 
+                src: "./Media/extra_work/extra_work_02.mp4",
+                thumb: "./Media/extra_work/extra_work_02.png" 
             },
             { 
                 id: 6, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 01", 
-                type: "image", 
+                category: "캐릭터 시트 제작", 
+                title: "2D 캐릭터 시트 세트 01", 
+                type: "gallery", 
                 format: "PNG", 
-                size: "1.2 MB", 
-                src: "./char_image_01.png", 
-                thumb: "./char_image_01.png" 
+                size: "4장", 
+                thumb: "./char_image_01.png", 
+                images: [
+                    "./char_image_01.png",
+                    "./char_image_02.png",
+                    "./char_image_03.png",
+                    "./char_image_04.png"
+                ]
             },
             { 
                 id: 7, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 02", 
-                type: "image", 
+                category: "캐릭터 시트 제작", 
+                title: "2D 캐릭터 시트 세트 02", 
+                type: "gallery", 
                 format: "PNG", 
-                size: "1.5 MB", 
-                src: "./char_image_02.png", 
-                thumb: "./char_image_02.png" 
+                size: "4장", 
+                thumb: "./char_image_05.png", 
+                images: [
+                    "./char_image_05.png",
+                    "./char_image_06.png",
+                    "./char_image_07.png",
+                    "./char_image_08.png"
+                ]
             },
             { 
                 id: 8, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 03", 
-                type: "image", 
+                category: "캐릭터 시트 제작", 
+                title: "2D 캐릭터 시트 세트 03", 
+                type: "gallery", 
                 format: "PNG", 
-                size: "2.1 MB", 
-                src: "./char_image_03.png", 
-                thumb: "./char_image_03.png" 
-            },
-            { 
-                id: 9, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 04", 
-                type: "image", 
-                format: "PNG", 
-                size: "1.8 MB", 
-                src: "./char_image_04.png", 
-                thumb: "./char_image_04.png" 
-            },
-            { 
-                id: 10, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 05", 
-                type: "image", 
-                format: "PNG", 
-                size: "2.4 MB", 
-                src: "./char_image_05.png", 
-                thumb: "./char_image_05.png" 
-            },
-            { 
-                id: 11, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 06", 
-                type: "image", 
-                format: "PNG", 
-                size: "1.9 MB", 
-                src: "./char_image_06.png", 
-                thumb: "./char_image_06.png" 
-            },
-            { 
-                id: 12, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 07", 
-                type: "image", 
-                format: "PNG", 
-                size: "2.0 MB", 
-                src: "./char_image_07.png", 
-                thumb: "./char_image_07.png" 
-            },
-            { 
-                id: 13, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 08", 
-                type: "image", 
-                format: "PNG", 
-                size: "2.2 MB", 
-                src: "./char_image_08.png", 
-                thumb: "./char_image_08.png" 
-            },
-            { 
-                id: 14, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 09", 
-                type: "image", 
-                format: "PNG", 
-                size: "1.7 MB", 
-                src: "./char_image_09.png", 
-                thumb: "./char_image_09.png" 
-            },
-            { 
-                id: 15, 
-                category: "캐릭터 제작", 
-                title: "2D 캐릭터 이미지 제작 10", 
-                type: "image", 
-                format: "PNG", 
-                size: "1.4 MB", 
-                src: "./char_image_10.png", 
-                thumb: "./char_image_10.png" 
-            },
-            { 
-                id: 16, 
-                category: "카페 이미지 생성", 
-                title: "모던 카페 인테리어", 
-                type: "image", 
-                format: "PNG", 
-                size: "2.4 MB", 
-                src: "./Media/cafe/cafe_modern.png",
-                thumb: "./Media/cafe/cafe_modern.png" 
+                size: "2장", 
+                thumb: "./char_image_09.png", 
+                images: [
+                    "./char_image_09.png",
+                    "./char_image_10.png"
+                ]
             }
         ];
 
-        const categories = ["퍼플티 광고", "추가 작업물", "캐릭터 제작", "카페 이미지 생성"];
+        const categories = ["퍼플티 광고", "추가 작업물", "캐릭터 시트 제작"];
         const galleryContainer = document.getElementById("gallery-container");
 
         function renderGallery() {
@@ -1193,6 +1206,13 @@
                 title.textContent = category;
                 section.appendChild(title);
 
+                if (category === "퍼플티 광고") {
+                    const desc = document.createElement("p");
+                    desc.className = "category-desc";
+                    desc.textContent = "홍보 영상, 광고 포스터, 브랜드 시트를 기획 및 제작하였습니다.";
+                    section.appendChild(desc);
+                }
+
                 const grid = document.createElement("div");
                 grid.className = "gallery-grid";
 
@@ -1206,13 +1226,17 @@
                         <div class="thumb-wrapper">
                             <img src="${item.thumb}" alt="${item.title}">
                             <div class="play-icon">▶</div>
+                            <span class="badge">${item.format}</span>
                         </div>
-                        <div class="media-info">
-                            <h4 class="media-title">${item.title}</h4>
+                        <div class="media-info" style="${!item.size || item.size === '-' ? 'padding-bottom: 15px;' : ''}">
+                            <h4 class="media-title" style="${!item.size || item.size === '-' ? 'margin-bottom: 0;' : ''}">
+                                <span>${item.title}</span>
+                            </h4>
+                            ${item.size && item.size !== '-' ? `
                             <div class="media-meta">
-                                <span class="badge">${item.format}</span>
                                 <span>${item.size}</span>
                             </div>
+                            ` : ''}
                         </div>
                     `;
 
@@ -1232,7 +1256,21 @@
         function openModal(item) {
             modalContent.innerHTML = "";
 
-            if (item.type === "image") {
+            if (item.type === "gallery" || item.images) {
+                // 그리드 형태의 이미지 모음 생성
+                const grid = document.createElement("div");
+                grid.className = "modal-gallery-grid";
+
+                item.images.forEach((src, idx) => {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.alt = `${item.title} - ${idx + 1}`;
+                    img.className = "modal-gallery-img";
+                    grid.appendChild(img);
+                });
+
+                modalContent.appendChild(grid);
+            } else if (item.type === "image") {
                 const img = document.createElement("img");
                 img.src = item.src;
                 img.alt = item.title;
