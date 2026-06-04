@@ -27,6 +27,8 @@
             background-color: #ffffff;
             overflow: hidden;
             padding-bottom: 160px;
+            perspective: 1500px; /* 3D 공간 원근감 정의 */
+            transform-style: preserve-3d;
         }
 
         .hero-wrap::before {
@@ -49,107 +51,78 @@
             z-index: 1;
         }
 
-        .deco-shape {
+        .aurora-bg {
             position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             z-index: 0;
+            pointer-events: none;
+            background: linear-gradient(135deg, #fefeff 0%, #f7f9fe 100%);
         }
 
-        .deco-1 {
-            top: 180px;
-            left: 8%;
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, rgba(0, 122, 255, 0.4), rgba(0, 122, 255, 0.1));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.15);
-            animation: float1 6s ease-in-out infinite;
+        .aurora-blob {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.45;
+            pointer-events: none;
         }
 
-        .deco-2 {
-            top: 220px;
-            right: 10%;
-            width: 110px;
-            height: 110px;
-            border-radius: 28px;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(157, 78, 221, 0.1));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 20px 40px rgba(157, 78, 221, 0.15);
-            animation: float2deco 7s ease-in-out infinite;
+        .blob-1 {
+            top: -150px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(162, 100, 240, 0.55) 0%, rgba(162, 100, 240, 0) 70%);
+            animation: moveBlob1 22s infinite alternate ease-in-out;
         }
 
-        .deco-3 {
-            top: 380px;
-            left: 15%;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, rgba(250, 204, 21, 0.5), rgba(250, 204, 21, 0.15));
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 15px 30px rgba(250, 204, 21, 0.2);
-            animation: float3 5s ease-in-out infinite;
-        }
-
-        .deco-4 {
-            top: 420px;
-            right: 18%;
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(236, 72, 153, 0.1));
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.15);
-            animation: float4deco 8s ease-in-out infinite;
-        }
-
-        .deco-5 {
-            top: 120px;
-            left: 25%;
-            width: 70px;
-            height: 70px;
-            background: transparent;
-            border: 6px solid rgba(34, 197, 94, 0.3);
-            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.1);
-            animation: float2 9s ease-in-out infinite;
-        }
-
-        .deco-6 {
+        .blob-2 {
             top: 150px;
-            right: 25%;
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, rgba(0, 122, 255, 0.6), rgba(157, 78, 221, 0.6));
-            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
-            animation: float3 6s ease-in-out infinite;
+            right: -150px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.45) 0%, rgba(0, 180, 216, 0) 70%);
+            animation: moveBlob2 26s infinite alternate ease-in-out;
         }
 
-        @keyframes float1 {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(8deg); }
+        .blob-3 {
+            bottom: -150px;
+            left: 15%;
+            background: radial-gradient(circle, rgba(244, 143, 177, 0.5) 0%, rgba(244, 143, 177, 0) 70%);
+            animation: moveBlob3 20s infinite alternate ease-in-out;
         }
 
-        @keyframes float2 {
-            0%, 100% { transform: translateY(0px) rotate(15deg); }
-            50% { transform: translateY(-20px) rotate(-5deg); }
+        .blob-4 {
+            top: 5%;
+            left: 35%;
+            background: radial-gradient(circle, rgba(255, 235, 120, 0.45) 0%, rgba(255, 235, 120, 0) 70%);
+            animation: moveBlob4 18s infinite alternate ease-in-out;
         }
 
-        @keyframes float3 {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-15px) translateX(10px); }
+        @keyframes moveBlob1 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(120px, 80px) scale(1.15); }
+            100% { transform: translate(-30px, 150px) scale(0.9); }
         }
 
-        @keyframes float2deco {
-            0%, 100% { transform: translateY(0px) rotate(15deg); }
-            50% { transform: translateY(-25px) rotate(25deg); }
+        @keyframes moveBlob2 {
+            0% { transform: translate(0px, 0px) scale(1.1); }
+            50% { transform: translate(-150px, -40px) scale(0.95); }
+            100% { transform: translate(80px, 120px) scale(1.15); }
         }
 
-        @keyframes float4deco {
-            0%, 100% { transform: translateY(0px) rotate(-20deg); }
-            50% { transform: translateY(-20px) rotate(-10deg); }
+        @keyframes moveBlob3 {
+            0% { transform: translate(0px, 0px) scale(0.9); }
+            50% { transform: translate(80px, -120px) scale(1.1); }
+            100% { transform: translate(-80px, 40px) scale(1); }
+        }
+
+        @keyframes moveBlob4 {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-80px, 80px) scale(1.15); }
+            100% { transform: translate(120px, -40px) scale(0.9); }
         }
 
         .top-right-brand {
@@ -182,7 +155,19 @@
             gap: 4px;
         }
 
+        .nav-indicator {
+            position: absolute;
+            background: rgba(250, 204, 21, 0.95);
+            box-shadow: 0 4px 12px rgba(250, 204, 21, 0.3);
+            border-radius: 40px;
+            z-index: 0;
+            transition: all 0.38s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            pointer-events: none;
+        }
+
         .nav-btn {
+            position: relative;
+            z-index: 1;
             padding: 10px 20px;
             color: #444;
             font-size: 0.95rem;
@@ -193,20 +178,17 @@
             justify-content: center;
             gap: 6px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: color 0.3s ease;
             white-space: nowrap;
             line-height: 1;
         }
 
         .nav-btn.active {
-            background: rgba(250, 204, 21, 0.9);
             color: #000;
             font-weight: 700;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .nav-btn:not(.active):hover {
-            background: rgba(255, 255, 255, 0.5);
             color: #000;
         }
 
@@ -452,16 +434,17 @@
         .media-card {
             background: #fff;
             border-radius: 16px;
-            overflow: hidden;
+            overflow: visible; /* 3D 요소 돌출을 위해 visible로 변경 */
             box-shadow: 0 4px 16px rgba(0,0,0,0.04);
             cursor: pointer;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.1s ease, box-shadow 0.25s ease; /* 3D 반응 속도 향상 */
             border: 1px solid rgba(0,0,0,0.03);
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .media-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
         .thumb-wrapper {
@@ -470,6 +453,9 @@
             background-color: #f1f5f9;
             position: relative;
             overflow: hidden;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            transform-style: preserve-3d;
         }
 
         .thumb-wrapper img {
@@ -487,7 +473,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) translateZ(40px); /* 3D 돌출 효과 */
             width: 54px;
             height: 54px;
             background: rgba(0,0,0,0.7);
@@ -499,6 +485,7 @@
             font-size: 22px;
             padding-left: 4px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 10;
         }
 
         .media-card[data-type="video"] .play-icon {
@@ -508,6 +495,9 @@
         .media-info {
             padding: 18px;
             background: #fff;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            transform-style: preserve-3d;
         }
 
         .media-title {
@@ -539,6 +529,7 @@
             border: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             z-index: 10;
+            transform: translateZ(35px); /* 3D 플로팅 효과 */
         }
 
         .modal {
@@ -647,8 +638,10 @@
                 background: #fff;
             }
 
-            .deco-shape {
-                display: none;
+            .aurora-blob {
+                filter: blur(70px);
+                width: 320px;
+                height: 320px;
             }
 
             .hero-wrap {
@@ -666,13 +659,13 @@
             .top-mini-nav {
                 position: fixed;
                 top: 15px;
+                bottom: auto;
                 left: 50%;
                 transform: translateX(-50%);
                 width: calc(100% - 30px);
-                max-width: 380px;
-                margin: 0 auto;
-                padding: 5px;
-                border-radius: 50px;
+                max-width: 480px;
+                border-radius: 40px;
+                padding: 6px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -681,7 +674,15 @@
                 background: rgba(255, 255, 255, 0.85);
             }
 
+            .nav-indicator {
+                background: #fff;
+                border-radius: 20px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            }
+
             .nav-btn {
+                position: relative;
+                z-index: 2;
                 flex: 1;
                 padding: 10px 0;
                 font-size: 0.82rem;
@@ -691,7 +692,8 @@
             }
 
             .nav-btn.active {
-                box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+                background: transparent !important;
+                box-shadow: none !important;
             }
 
             /* 모바일 고정 바 영역만큼 본문 소개글 상단 여백 확보 */
@@ -897,16 +899,17 @@
 
 <body>
     <header class="hero-wrap">
-        <div class="deco-shape deco-1"></div>
-        <div class="deco-shape deco-2"></div>
-        <div class="deco-shape deco-3"></div>
-        <div class="deco-shape deco-4"></div>
-        <div class="deco-shape deco-5"></div>
-        <div class="deco-shape deco-6"></div>
+        <div class="aurora-bg">
+            <div class="aurora-blob blob-1"></div>
+            <div class="aurora-blob blob-2"></div>
+            <div class="aurora-blob blob-3"></div>
+            <div class="aurora-blob blob-4"></div>
+        </div>
 
         <div class="top-right-brand">최지아 포트폴리오</div>
 
         <nav class="top-mini-nav">
+            <div class="nav-indicator"></div>
             <div class="nav-btn active" data-target="resume">📄 Resume</div>
             <div class="nav-btn" data-target="ai_project">🤖 AI Project</div>
             <div class="nav-btn" data-target="contact">✉️ Contact</div>
@@ -1061,11 +1064,25 @@
         const navButtons = document.querySelectorAll('.nav-btn');
         const sections = document.querySelectorAll('.tab-content');
         const heroWrap = document.querySelector('.hero-wrap');
+        const navIndicator = document.querySelector('.nav-indicator');
+
+        function updateNavIndicator() {
+            const activeBtn = document.querySelector('.nav-btn.active');
+            if (activeBtn && navIndicator) {
+                navIndicator.style.left = activeBtn.offsetLeft + 'px';
+                navIndicator.style.top = activeBtn.offsetTop + 'px';
+                navIndicator.style.width = activeBtn.offsetWidth + 'px';
+                navIndicator.style.height = activeBtn.offsetHeight + 'px';
+            }
+        }
 
         navButtons.forEach(button => {
             button.addEventListener('click', function() {
                 navButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
+
+                // Update active indicator bubble
+                updateNavIndicator();
 
                 const targetName = this.getAttribute('data-target');
                 const targetId = 'section-' + targetName;
@@ -1250,6 +1267,64 @@
 
         renderGallery();
 
+        // 3D 카드 틸트(기울임) 및 패럴랙스 효과 적용
+        function initTiltEffect() {
+            const cards = document.querySelectorAll('.media-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const xc = rect.width / 2;
+                    const yc = rect.height / 2;
+                    
+                    // 최대 회전 제어
+                    const angleX = (yc - y) / 15; 
+                    const angleY = (x - xc) / 15;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-8px)`;
+                    card.style.boxShadow = `0 20px 40px rgba(0, 0, 0, 0.15)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0deg)`;
+                    card.style.boxShadow = `0 4px 16px rgba(0,0,0,0.04)`;
+                });
+
+                // 모바일 터치 이벤트 감지 및 기울임 적용
+                card.addEventListener('touchmove', e => {
+                    const touch = e.touches[0];
+                    const rect = card.getBoundingClientRect();
+                    const x = touch.clientX - rect.left;
+                    const y = touch.clientY - rect.top;
+                    
+                    if (x < 0 || x > rect.width || y < 0 || y > rect.height) return;
+
+                    const xc = rect.width / 2;
+                    const yc = rect.height / 2;
+                    
+                    const angleX = (yc - y) / 15; 
+                    const angleY = (x - xc) / 15;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-8px)`;
+                    card.style.boxShadow = `0 20px 40px rgba(0, 0, 0, 0.15)`;
+                });
+
+                // 터치 해제 시 원상 복구
+                card.addEventListener('touchend', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0deg)`;
+                    card.style.boxShadow = `0 4px 16px rgba(0,0,0,0.04)`;
+                });
+
+                card.addEventListener('touchcancel', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0deg)`;
+                    card.style.boxShadow = `0 4px 16px rgba(0,0,0,0.04)`;
+                });
+            });
+        }
+        initTiltEffect();
+
         const modal = document.getElementById("mediaModal");
         const modalContent = document.getElementById("modalContent");
 
@@ -1308,6 +1383,12 @@
                 closeModal();
             }
         });
+
+        // Initialize indicator position
+        window.addEventListener('load', updateNavIndicator);
+        window.addEventListener('resize', updateNavIndicator);
+        // Fallback for initial load
+        setTimeout(updateNavIndicator, 100);
     </script>
 </body>
 </html>
